@@ -88,21 +88,24 @@ if (langBtn) {
 }
 try { if (localStorage.getItem('lang') === 'en') setLang('en'); } catch (e) {}
 
-// Efecto del cursor: resplandor + anillo (solo con mouse)
+// Efecto del cursor: punto que sigue al instante + anillo con retraso (solo con mouse)
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const glow = document.createElement('div'); glow.className = 'cursor-glow';
+  const dot = document.createElement('div'); dot.className = 'cursor-dot';
   const ring = document.createElement('div'); ring.className = 'cursor-ring';
-  document.body.append(glow, ring);
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.body.append(dot, ring);
+  let mx = 0, my = 0, rx = 0, ry = 0, started = false;
   window.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    glow.style.transform = `translate(${mx}px, ${my}px)`;
-    document.body.classList.add('cursor-on');
+    dot.style.transform = `translate(${mx}px, ${my}px)`;
+    if (!started) { started = true; rx = mx; ry = my; document.body.classList.add('custom-cursor'); }
   });
-  document.addEventListener('mouseleave', () => document.body.classList.remove('cursor-on'));
+  document.addEventListener('mouseleave', () => document.body.classList.remove('custom-cursor'));
+  document.addEventListener('mouseenter', () => { if (started) document.body.classList.add('custom-cursor'); });
   document.addEventListener('mouseover', e => ring.classList.toggle('hot', !!e.target.closest('a, button, summary')));
+  document.addEventListener('mousedown', () => ring.classList.add('down'));
+  document.addEventListener('mouseup', () => ring.classList.remove('down'));
   (function follow() {
-    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+    rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
     ring.style.transform = `translate(${rx}px, ${ry}px)`;
     requestAnimationFrame(follow);
   })();
