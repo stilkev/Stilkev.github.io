@@ -1,100 +1,34 @@
-# Plantilla de portafolio para GitHub Pages
+# Portafolio de Kevin Martinez — GitHub Pages
 
-Plantilla estática hecha con HTML, CSS y JavaScript. No necesita instalar programas ni frameworks.
+Esta carpeta contiene una página estática en español para presentar el perfil profesional de Kevin Alejandro Martinez Jaramillo. Está preparada para publicarse en GitHub Pages sin instalar programas.
 
 ## Archivos
+- `index.html`: textos, experiencia, estudios, enlaces y proyectos.
+- `styles.css`: diseño, colores y detalles visuales.
+- `script.js`: menú móvil, animaciones y filtros de proyectos.
 
-- `index.html`: contenido, textos, enlaces y tarjetas de proyectos.
-- `styles.css`: diseño adaptable y colores centralizados al principio en `:root`.
-- `script.js`: menú móvil, animaciones de entrada, filtros de proyectos, año automático y navegación activa.
+## Información incluida
+- Perfil enfocado en QA de videojuegos, Unity/C# y arte 3D.
+- Experiencia profesional en Endless Adventures Incorporated y Frecuencia Gamer.
+- Proyecto formativo de estrategia con realidad aumentada desarrollado con Unity.
+- `Jumping Pets` e `I Suck At Minigolf`, enlazados a itch.io.
+- Formación, habilidades e idiomas indicados en la hoja de vida.
 
-## 1. Personaliza tu contenido
+## Antes de publicar
+1. Abre la web y revisa que todos los datos estén correctos.
+2. Añade el enlace de LinkedIn cuando tengas la URL pública exacta.
+3. Si tienes repositorios de GitHub para los proyectos, añade esos enlaces a cada tarjeta. No se han inventado enlaces de código fuente porque no se proporcionaron.
+4. Completa las herramientas utilizadas y tu responsabilidad concreta en `Jumping Pets` e `I Suck At Minigolf`. Las fichas de itch.io no detallan esos datos, así que el texto evita atribuir tareas o tecnologías no confirmadas.
+5. Puedes reemplazar las ilustraciones decorativas de las tarjetas por capturas reales. Crea una carpeta `images` en la raíz del repositorio y sube imágenes optimizadas; luego modifica la sección visual de cada tarjeta en `index.html`.
 
-Abre `index.html` y busca/reemplaza:
-
-- `Tu Nombre` / `TU NOMBRE`: tu nombre profesional.
-- `TU-CORREO@EJEMPLO.COM`: tu correo.
-- `TU-USUARIO`: tu usuario de GitHub, LinkedIn o ArtStation.
-- `TU-REPOSITORIO`: repositorio de cada proyecto.
-- `TU-PORTAFOLIO-3D.com`: enlace real de tu trabajo 3D.
-- Los textos de perfil, experiencia, proyectos y habilidades.
-- Los años y los títulos de cada proyecto.
-
-Los enlaces de ejemplo deben reemplazarse antes de publicar. Si no usas ArtStation, elimina ese enlace o sustitúyelo por la plataforma que uses.
-
-## 2. Añadir proyectos
-
-En `index.html`, dentro de `<div class="project-grid">`, duplica un bloque completo `<article class="project-card reveal" ...> ... </article>`.
-
-Cambia:
-- `data-category="unity"` por `qa`, `unity` o `3d` para que funcione el filtro.
-- El nombre, descripción, etiquetas, fecha y enlaces.
-- La ilustración CSS por una captura real, si lo prefieres.
-
-Para usar una imagen propia, guarda por ejemplo `images/proyecto-01.jpg` dentro del repositorio y reemplaza el contenido visual del enlace de proyecto por:
-
-```html
-<img class="project-cover" src="images/proyecto-01.jpg" alt="Captura del proyecto">
-```
-
-Añade al final de `styles.css`:
-
-```css
-.project-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-```
-
-Si usas una imagen, conserva las clases `project-image image-purple` (o la variante que prefieras) en el enlace contenedor. Ajusta el texto alternativo para describir la imagen.
-
-## 3. Cambiar los colores
-
-Al principio de `styles.css` encontrarás:
-
-```css
-:root {
-  --bg: #090b12;
-  --surface: #10131e;
-  --surface-2: #151927;
-  --text: #f3f4fb;
-  --muted: #a1a6b9;
-  --subtle: #70778d;
-  --line: rgba(195, 202, 255, .13);
-  --accent: #a78bfa;
-  --accent-2: #54e5cf;
-  --accent-3: #ff9b71;
-}
-```
-
-- `--bg`: fondo general.
-- `--text`: texto principal.
-- `--muted`: texto secundario.
-- `--accent`: color de acento principal.
-- `--accent-2`: segundo color de acento.
-- `--accent-3`: tercer color de acento.
-- `.ambient-left` y `.ambient-right`: resplandores laterales; cambian con los colores de acento.
-
-Puedes probar combinaciones como violeta + cian, azul + rosa o naranja + verde menta. Para un aspecto coherente, conserva un fondo oscuro y limita los acentos a dos o tres colores.
-
-## 4. Publicar con GitHub Pages
-
-1. Crea un repositorio en GitHub. Para una dirección del tipo `https://TU-USUARIO.github.io/`, el repositorio debe llamarse exactamente `TU-USUARIO.github.io`.
+## Publicar
+1. En GitHub, crea un repositorio llamado `TU-USUARIO.github.io` si quieres que la web esté en la dirección principal de tu cuenta.
 2. Sube `index.html`, `styles.css`, `script.js` y `README.md` a la raíz del repositorio.
-3. En GitHub, abre **Settings → Pages**.
-4. En **Build and deployment**, elige **Deploy from a branch**.
-5. Selecciona la rama `main` y la carpeta `/(root)`, y guarda.
-6. Espera a que termine la publicación y abre la dirección que GitHub Pages muestra en esa pantalla.
+3. Ve a **Settings → Pages**.
+4. Selecciona **Deploy from a branch**, la rama `main` y la carpeta `/(root)`.
+5. Guarda y espera a que GitHub publique la web.
 
-Si usas un repositorio con otro nombre, la URL será normalmente `https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/`.
-
-## 5. Consejos antes de publicarlo
-
-- Prueba la página en móvil y escritorio.
-- Comprueba que todos los enlaces llevan al destino correcto.
-- Usa imágenes optimizadas en JPG, PNG o WebP para que la web cargue rápido.
-- Añade texto alternativo descriptivo a las imágenes.
-- Si tienes un PDF de tu CV, colócalo en la raíz como `TU-CV.pdf` o cambia el enlace.
-- La fuente se carga desde Google Fonts; si prefieres no depender de un servicio externo, elimina los enlaces de Google Fonts del HTML y define fuentes del sistema en el CSS.
+## Personalización sencilla
+- Cambia los textos y enlaces desde `index.html`.
+- Los colores principales están al principio de `styles.css`, dentro de `:root`.
+- Los filtros de proyectos usan el atributo `data-category` de cada tarjeta y los valores de los botones en `index.html`.
