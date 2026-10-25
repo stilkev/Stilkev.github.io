@@ -179,3 +179,19 @@ h1 { font-size: clamp(2.8rem, 5.3vw, 5rem); line-height: 1.07; letter-spacing: -
 .project-details strong {
   color: var(--text);
 }
+
+/* ===== CAMBIOS: nombre, foto, idioma y cursor ===== */
+.hero h1 { margin-bottom: 8px; }
+.hero-role { margin: 0 0 22px; color: var(--text); font: 500 .95rem 'DM Mono', monospace; letter-spacing: .06em; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.lang-toggle { cursor: pointer; color: var(--text); background: none; border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; font: 500 .72rem 'DM Mono', monospace; letter-spacing: .08em; transition: border-color .2s, color .2s; }
+.lang-toggle:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.photo-frame { position: relative; aspect-ratio: 1 / 1.05; margin: 16px 0 18px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(145deg, #25283b, #111522); display: grid; place-items: center; }
+.photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.photo-fallback { font: 800 6rem 'Manrope', sans-serif; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.site-footer { flex-wrap: wrap; gap: 14px 28px; }
+.cursor-glow { position: fixed; left: 0; top: 0; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; background: radial-gradient(circle, rgba(167,139,250,.17), rgba(84,229,207,.06) 42%, transparent 70%); pointer-events: none; z-index: -1; opacity: 0; transition: opacity .4s; }
+.cursor-ring { position: fixed; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1.5px solid var(--accent-2); border-radius: 50%; pointer-events: none; z-index: 100; opacity: 0; transition: width .2s, height .2s, margin .2s, background .2s, opacity .3s; }
+.cursor-ring.hot { width: 58px; height: 58px; margin: -29px 0 0 -29px; background: rgba(84,229,207,.12); }
+.cursor-on .cursor-glow, .cursor-on .cursor-ring { opacity: 1; }
+@media (max-width: 760px) { .lang-toggle { padding: 6px 9px; } }
